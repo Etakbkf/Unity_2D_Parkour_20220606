@@ -39,6 +39,14 @@ namespace Ash
         #endregion
 
         #region   事件:程式入口
+        //喚醒事件:開始事件前執行一次、取得元件等等
+        private void Awake()
+        {
+            //ani指定:指定角色身上的 Animator
+            ani = GetComponent<Animator>();
+
+        }
+
         //開始事件:播放遊戲時執行一次
         //初始化設定: 例如生命值初始化
         private void Start()
@@ -46,6 +54,13 @@ namespace Ash
             print("Hello,Stranger");
         }
 
+        //更新事件:每秒執行60次 60FPS
+        /*
+        private void Update()
+        {
+            print("<color=yellow>更新事件</color>");
+        }
+        */
         #endregion
 
 
