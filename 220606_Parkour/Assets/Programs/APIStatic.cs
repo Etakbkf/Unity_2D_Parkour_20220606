@@ -7,7 +7,9 @@ namespace Ash
     /// </summary>
     public class APIStatic : MonoBehaviour
     {
- 
+
+        private Vector3 avector = new Vector3(1, 1, 1);
+        private Vector3 bvector = new Vector3(22, 22, 22);
         private void Start()
         {
             #region  課堂
@@ -33,17 +35,12 @@ namespace Ash
             print("隨機範圍:" + rng);
             #endregion
             #region  習作
-            int camCount = Camera.allCamerasCount;
-            print("攝影機數量:" + camCount);
+            print("攝影機數量:" + Camera.allCamerasCount);
             print("應用程式平台:" + Application.platform);
             Physics.sleepThreshold = 10.0f;
             print("睡眠臨界值:" + Physics.sleepThreshold);
             Time.timeScale = 0.5f;
             print("9.999四捨五入:" + Mathf.Round(9.999f));
-            Vector3 avector;
-            Vector3 bvector;
-            avector = new Vector3(1, 1, 1);
-            bvector = new Vector3(22, 22, 22);
             print("(1,1,1)與(22,22,22)兩點距離為:" + Vector3.Distance(avector,bvector));
             Application.OpenURL("http://unity3d.com/");
             #endregion
@@ -62,10 +59,10 @@ namespace Ash
             */
             #endregion
             #region  習作
-            if (Input.anyKey) { print("按鍵:"+Input.anyKey); }
-            float timed = Time.realtimeSinceStartup;
-            print("<color=#0066CC>經過時間:</color>" + timed );
-            if (Input.GetKey("space"))  { print("<color=yellow>已按下空白鍵</color>");  }
+            print("按鍵:"+Input.anyKey); 
+            //print("<color=#0066CC>遊戲時間:</color>" + Time.realtimeSinceStartup);
+            print("<color=#0066CC>經過時間:</color>" + Time.timeSinceLevelLoad);
+            print("<color=yellow>按下空白鍵:</color>"+ Input.GetKeyDown(KeyCode.Space));
             #endregion
         }
 
