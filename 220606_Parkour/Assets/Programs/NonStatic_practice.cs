@@ -6,25 +6,39 @@ public class NonStatic_practice : MonoBehaviour
 {
         #region data
         private SphereCollider spc;
+        private Transform trn;
         private Camera cam;
+        private GameObject cb;
+        private GameObject sp;
+        private GameObject cs;
         #endregion
 
         #region event
         private void Start()
         {
-            if (FindObjectOfType(typeof(Camera)))
-            {
-            print("攝影機深度："+Camera.main.depth);
             cam = GetComponent<Camera>();
-            cam.backgroundColor = Color.green;
-            }
-            else if(FindObjectOfType(typeof(Mesh)))
-            {
             spc = GetComponent<SphereCollider>();
-            print("球體碰撞半徑：" + spc.radius);
+            trn = GetComponent<Transform>();
+            cb = GameObject.Find("Cube");
+            sp = GameObject.Find("Sphere");
+            cs = GameObject.Find("Capsule");
+
+
+            if (gameObject.tag=="MainCamera")
+            {
+            cam.backgroundColor = Color.green;
+            print("攝影機深度：" + cam.depth);
             }
-            
-            
+
+            else if (gameObject.name == "Sphere")
+            {
+                print("球體碰撞半徑：" + spc.radius);
+            }
+            else if (gameObject.name == "Capsule")
+            {
+                trn.localScale = new Vector3(3.0f, 2.0f, 1.0f);
+            }
+
         }
 
         private void Awake()
@@ -39,7 +53,8 @@ public class NonStatic_practice : MonoBehaviour
 
         private void Update()
         {
-            
+            cb.transform.LookAt(sp.transform, Vector3.left);
+            cs.GetComponent<Rigidbody>().AddForce(0, 1.0f, 0);
         }
         #endregion
 
