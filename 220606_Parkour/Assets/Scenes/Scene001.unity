@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 783804277}
   - component: {fileID: 783804276}
   - component: {fileID: 783804275}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3381,7 +3381,7 @@ CompositeCollider2D:
   m_GameObject: {fileID: 783804271}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4bf58821b29338149b24ab7c6b2082db, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -4448,7 +4448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096b949cf0b2ed64dbfc27529b048155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRun: 0
+  speedRun: 2
 --- !u!114 &1394026905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4462,6 +4462,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heighJump: 58
+  v3CheckGroundSize: {x: 0.5, y: 0.1, z: 1}
+  v3CheckOffset: {x: 0, y: -0.6, z: 0}
+  ColorCheckGround: {r: 0.2887754, g: 0.23113209, b: 1, a: 0.5}
+  layerCheckGround:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &1463539556
 GameObject:
   m_ObjectHideFlags: 0

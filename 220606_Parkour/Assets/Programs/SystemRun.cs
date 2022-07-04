@@ -32,14 +32,14 @@ namespace Ash
 
         #endregion
 
-        #region   功能:實作該系統的複雜方法
+      #region   功能:實作該系統的複雜方法
         //方法 Method
         //語法
         //修飾詞  傳回資料類型  方法名稱號(參數)  {程式}
 
         private void Run()
         {
-            print("跑步中~~");
+           //print("跑步中~~");
             rig.velocity = new Vector2(speedRun,rig.velocity.y);
         }
 
