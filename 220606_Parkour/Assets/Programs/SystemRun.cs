@@ -28,25 +28,41 @@ namespace Ash
         private float speedRun = 3.5f;
         private Animator ani;
         private Rigidbody2D rig;
-
+        private bool clickRun;
 
         #endregion
 
-      #region   功能:實作該系統的複雜方法
+        #region   功能:實作該系統的複雜方法
         //方法 Method
         //語法
         //修飾詞  傳回資料類型  方法名稱號(參數)  {程式}
-
+        /*
         private void Run()
         {
-           //print("跑步中~~");
             rig.velocity = new Vector2(speedRun,rig.velocity.y);
+            
         }
+       */
+        private void Runkey()
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                clickRun = true;
+                ani.SetBool("Bool_run", true);
+                rig.velocity = new Vector2(speedRun, rig.velocity.y);
+            }
+            else if (Input.GetKeyUp(KeyCode.D))
+            {
+                ani.SetBool("Bool_run", false);
+                rig.velocity = Vector3.zero;
+                clickRun = false;
+            }
+        }
+   
+        #endregion
 
-      #endregion
-
-      #region   事件:程式入口
-         //喚醒事件:開始事件前執行一次、取得元件等等
+        #region   事件:程式入口
+        //喚醒事件:開始事件前執行一次、取得元件等等
         private void Awake()
         {
             //ani指定:指定角色身上的 Animator
@@ -64,11 +80,21 @@ namespace Ash
          //更新事件:每秒執行60次 60FPS
         private void Update()
         {
-            //print("<color=yellow>更新事件</color>");
-            Run();
+            //Run();
+            Runkey();
+        }
+        
+        private void OnEnable()     //此元件被勾選時執行一次
+        {
+            
+        }
+        
+        private void OnDisable()    //此元件被取消時執行一次
+        {
+            rig.velocity = Vector3.zero;     //加速度歸零
         }
 
-      #endregion
+        #endregion
 
 
 
