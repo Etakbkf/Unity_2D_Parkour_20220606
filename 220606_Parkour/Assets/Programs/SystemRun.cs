@@ -29,6 +29,7 @@ namespace Ash
         private Animator ani;
         private Rigidbody2D rig;
         private bool clickRun;
+        private Transform tri;
 
         #endregion
 
@@ -52,6 +53,20 @@ namespace Ash
                 rig.velocity = new Vector2(speedRun, rig.velocity.y);
             }
             else if (Input.GetKeyUp(KeyCode.D))
+            {
+                ani.SetBool("Bool_run", false);
+                rig.velocity = Vector3.zero;
+                clickRun = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                clickRun = true;
+                ani.SetBool("Bool_run", true);
+                //tri.transform.localScale = new Vector3(-1, 1, 1);
+                rig.velocity = new Vector2(-1*speedRun, rig.velocity.y);
+            }
+            else if (Input.GetKeyUp(KeyCode.A))
             {
                 ani.SetBool("Bool_run", false);
                 rig.velocity = Vector3.zero;

@@ -11,6 +11,8 @@ namespace Ash
         private SystemRun systemRun;
         [SerializeField, Header("跳躍系統")]
         private SystemJump systemJump;
+        [SerializeField, Header("結束管理器")]
+        private FinalMG finalMG;
         #region 其中一個物件有勾選 Is Trigger
         //兩個物件碰撞時執行一次
         private void OnTriggerEnter2D(Collider2D collision)
@@ -20,6 +22,8 @@ namespace Ash
             {
                 systemRun.enabled = false;  //關閉跑步系統
                 systemJump.enabled = false; //關閉跳躍系統
+                finalMG.enabled = true;  //啟動結束管理器FinalCanvarsMG
+                finalMG.stringTitle = "恭喜你過關~";
             }
         }
         //兩個物件碰撞離開時執行一次
