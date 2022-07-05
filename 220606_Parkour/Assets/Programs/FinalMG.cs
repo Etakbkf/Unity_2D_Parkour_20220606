@@ -18,10 +18,10 @@ namespace Ash
         /// <summary>
         /// 遊戲結束標題的文字內容
         /// </summary>
-        public string stringTitle;  //public是為了讓另一個script PassMG讀取
+        public string stringTitle;  //public是為了讓其他script呼叫以便修改標題
         private void Start()
         {
-            textFinal.text = stringTitle;
+            textFinal.text = stringTitle;   //修改標題
             //MonoBehaviour類別的API可以直接使用名稱呼叫
             InvokeRepeating("FadeIn", 0, 0.2f);  //重覆呼叫("方法名稱",延遲時間,呼叫間隔時間)
         }
